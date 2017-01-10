@@ -1,6 +1,6 @@
-#reddit Twitter Bot
+#Me IRL Bot
 
-A Python bot that looks up posts from reddit and automatically posts them on Twitter.
+A Python bot that looks up images from the /r/me_irl subreddit and automatically posts them on Twitter. This was created for the [@ItMeIRL](https://twitter.com/ItMeIRL) account, heavily based on [reddit-twitter-bot](https://github.com/rhiever/reddit-twitter-bot).
 
 ##Disclaimer
 
@@ -21,6 +21,13 @@ You will also need to create an app account on Twitter: [[instructions]](https:/
 4. Generate a new OAuth token with those permissions
 5. Manually edit this script and put those tokens in the script
 
+In addition, you will have to create an application on Reddit:
+
+1. Sign in with your Reddit account
+2. Go to your [app preferences](https://www.reddit.com/prefs/apps) and create a new application at the bottom
+3. Select the application type as 'script'
+4. Manually edit this script with the token (seen below the name of the bot after it's generated) and the secret
+
 ##Usage
 
 Once you edit the bot script to provide the necessary API keys and the subreddit you want to tweet from, you can run the bot on the command line:
@@ -28,7 +35,3 @@ Once you edit the bot script to provide the necessary API keys and the subreddit
     python reddit_twitter_bot.py
  
 Look into the script itself for configuration options of the bot.
-
-##Have questions? Need help with the bot?
-
-If you're having issues with or have questions about the bot, please [file an issue](https://github.com/rhiever/reddit-twitter-bot/issues) in this repository so one of the project managers can get back to you. Please check the existing (and closed) issues to make sure your issue hasn't already been addressed.
