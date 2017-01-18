@@ -8,10 +8,11 @@ I hold no liability for what you do with this script or what happens to you by u
 
 ##Dependencies
 
-You will need to install Python's [tweepy](https://github.com/tweepy/tweepy) and [PRAW](https://praw.readthedocs.org/en/) libraries first:
+You will need to install the [tweepy](https://github.com/tweepy/tweepy), [PRAW](https://praw.readthedocs.org/en/), and [ImgurPython](https://github.com/Imgur/imgurpython) libraries first:
 
     pip install tweepy
     pip install praw
+    pip install imgurpython
     
 You will also need to create an app account on Twitter: [[instructions]](https://dev.twitter.com/apps)
 
