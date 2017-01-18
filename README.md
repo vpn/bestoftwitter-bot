@@ -39,6 +39,6 @@ The bot also requires Imgur API access, for future integration with Imgur:
 
 Once you edit the bot script to provide the necessary API keys and the subreddit you want to tweet from, you can run the bot on the command line:
 
-    python reddit_twitter_bot.py
+    python me-irl-bot.py
  
-Look into the script itself for configuration options of the bot.
+Look into the script itself for configuration options of the bot. By default, the bot will ping Reddit for new posts every 600 seconds (10 minutes) and continue running in a loop.
