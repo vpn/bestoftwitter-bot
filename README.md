@@ -28,6 +28,12 @@ In addition, you will have to create an application on Reddit:
 3. Select the application type as 'script'
 4. Manually edit this script with the token (seen below the name of the bot after it's generated) and the secret
 
+The bot also requires Imgur API access, for future integration with Imgur:
+
+1. Sign in with your Imgur account
+2. Go to [Register an application](https://api.imgur.com/oauth2/addclient) and fill everything out
+3. Imgur will then send you the client ID/secret via email, just paste it in the Imgur variables at the top of the script
+
 ##Usage
 
 Once you edit the bot script to provide the necessary API keys and the subreddit you want to tweet from, you can run the bot on the command line:
