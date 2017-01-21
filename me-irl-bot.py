@@ -140,8 +140,7 @@ def strip_title(title, num_characters):
 
 def get_image(img_url):
 	''' Downloads images that reddit posts may point to. '''
-	# Todo: add i.reddituploads.com support
-	if any(s in img_url for s in ('i.imgur.com', 'i.redd.it')):
+	if any(s in img_url for s in ('i.imgur.com', 'i.redd.it', 'i.reddituploads.com')):
 		# This adds support for all imgur links (including galleries), but I need to make a new regex
 		#if ('i.imgur.com' not in img_url) and ('imgur.com' in img_url):
 			#print('[bot] Attempting to retrieve image URL for', img_url, 'from imgur...')
@@ -150,8 +149,14 @@ def get_image(img_url):
 			#print(m.group(0))
 			#img_url = imgur.get_image(img_url)
 		file_name = os.path.basename(urllib.parse.urlsplit(img_url).path)
+		file_extension = os.path.splitext(img_url)[-1].lower();
+		# Fix for issue with i.reddituploads.com links not having a file extension in the URL
+		if not file_extension:
+			file_extension += '.jpg'
+			file_name += '.jpg'
+			img_url += '.jpg'
 		img_path = IMAGE_DIR + '/' + file_name
-		print('[bot] Downloading image at URL ' + img_url + ' to ' + img_path)
+		print('[bot] Downloading image at URL ' + img_url + ' to ' + img_path + ', file type identified as ' + file_extension)
 		if ('gif' not in img_url) and ('gifv' not in img_url):
 			resp = requests.get(img_url, stream=True)
 			if resp.status_code == 200:
@@ -160,6 +165,7 @@ def get_image(img_url):
 						image_file.write(chunk)
 				# Return the path of the image, which is always the same since we just overwrite images
 				return img_path
+				print('path:', img_path)
 			else:
 				print('[bot] Image failed to download. Status code: ' + resp.status_code)
 	else:
@@ -183,8 +189,7 @@ def tweeter(post_dict, post_ids):
 		post_text = strip_title(post, TWEET_MAX_LEN - extra_text_len)
 		# Only send a tweet if there is a valid image, and the title contains both "me" and "irl"
 		if (img_path) and ('me' in post_text) and ('irl' in post_text):
-			print('[bot] Posting this link on Twitter: ', post_text, ' ', img_path)
-			print('[bot] With image ' + img_path)
+			print('[bot] Posting this link on Twitter: ', post_text, img_path)
 			api.update_with_media(filename=img_path, status=post_text)
 		log_tweet(post_id)
 		time.sleep(DELAY_BETWEEN_TWEETS)
