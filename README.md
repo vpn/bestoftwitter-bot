@@ -14,13 +14,14 @@ You will need to install the [tweepy](https://github.com/tweepy/tweepy), [PRAW](
     pip install praw
     pip install imgurpython
     
-You will also need to create an app account on Twitter: [[instructions]](https://dev.twitter.com/apps)
+You will also need to create two app accounts on Twitter. One of them is used for posting images, and the other replying to every main tweet with credit to the original poster.
 
-1. Sign in with your Twitter account
+1. [Sign in with your Twitter account](https://dev.twitter.com/apps)
 2. Create a new app account
 3. Modify the settings for that app account to allow read & write
 4. Generate a new OAuth token with those permissions
 5. Manually edit this script and put those tokens in the script
+6. Repeat for second account
 
 In addition, you will have to create an application on Reddit:
 
